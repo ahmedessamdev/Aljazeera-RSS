@@ -11,8 +11,8 @@ The plugin has few options in the widget panel:
 <li>Number of items to show</li>
 <li>Change RSS link (Incase aljazeera changed their RSS url)</li>
 </ol>
-The feed is cached for 10min for better preformance
-
+The feed is cached for 10min for better preformance<br>
+If you want to add your own css, create a css file, name it custom.css and put it in the plugin folder<br>
 I will post the link to the wordpress plugins directory as soon as I register it with wordpress. 
 
 Any suggestions/issues/forks are welcome
