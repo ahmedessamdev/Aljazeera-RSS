@@ -9,6 +9,7 @@ Author URI :
 
 #aljazeera_rss_container {
 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+direction: rtl;
 background-color:#655e53;
 border-radius:10px;
 border:1px solid #575757;
