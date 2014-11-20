@@ -12,10 +12,8 @@ function load_my_widget() {
     register_widget('Aljazeera_rss'); 
     // CSS of the widget
     wp_enqueue_style( 'aljazeera_style.css', plugins_url('/aljazeera_style.css', __FILE__));
-    // If the user puts custom css, enqueue
-    if (file_exists(plugins_url('/aljazeera_rss/custom.css', __FILE__))) {
-        wp_enqueue_style( 'custom.css', plugins_url('/custom.css', __FILE__));
-    }
+    // Custom css
+    wp_enqueue_style( 'custom.css', plugins_url('/custom.css', __FILE__));
     // Feed cache recreation time (in seconds)
     add_filter('wp_feed_cache_transient_lifetime', function() { return 600; });
 }
@@ -157,6 +155,7 @@ class Aljazeera_rss extends WP_Widget {
 
         // Output the feed
         private function output_feed($url) {
+            $guids = array();
             // Get the feed using simplepie integerated in wordpress
             $rss = fetch_feed($url);
 
@@ -172,7 +171,17 @@ class Aljazeera_rss extends WP_Widget {
             $rss_items = $rss->get_items(0, $num_items_available); 
 ?>
               <dl>
-                   <?php foreach ($rss_items as $rss_item) : ?>
+                   <?php foreach ($rss_items as $rss_item) :
+                             // Check for duplicates
+                             $temp_guid = $rss_item->get_id(true);
+                             if (in_array($temp_guid, $guids)) {
+                                 // Skip this item
+                                 continue;
+                             } else {
+                                 // Add the guid
+                                 $guids[] = $temp_guid;
+                             }
+                   ?>
                     <dt class="rss_title">
                         <a href='<?php echo esc_url($rss_item->get_permalink()); ?>'
                            title='<?php 
