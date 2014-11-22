@@ -4,7 +4,7 @@
  * Plugin URI : 
  * Description: Display the latest Aljazeera news using RSS
  * Version    : 1.0
- * Author     : Yehia
+ * Author     : yehiasedkydev
  * Author URI : 
  */
 
