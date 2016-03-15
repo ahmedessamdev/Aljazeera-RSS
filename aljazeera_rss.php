@@ -1,11 +1,11 @@
 <?php
 /*
  * Plugin Name: Aljazeera RSS
- * Plugin URI : 
- * Description: Display the latest Aljazeera news using RSS
- * Version    : 1.0
- * Author     : yehiasedkydev
- * Author URI : 
+ * Plugin URI : https://wordpress.org/plugins/aljazeera-rss/
+ * Description: Display the latest news from Aljazeera RSS feed
+ * Version    : 1.1
+ * Author     : Ahmed Essam
+ * Author URI : http://www.ahmedspace.com
  */
 
 function load_my_widget() { 
@@ -18,7 +18,7 @@ function load_my_widget() {
     add_filter('wp_feed_cache_transient_lifetime', function() { return 600; });
 }
 
-// Add oto the widgets_init hook.
+// Add to the widgets_init hook.
 add_action('widgets_init', 'load_my_widget');
 
 class Aljazeera_rss extends WP_Widget {
@@ -30,12 +30,10 @@ class Aljazeera_rss extends WP_Widget {
     private $desc_on;
 
     function __construct() {
-        $widget_ops = array('classname' => 'Aljazeera_rss', 
-                            'description' => 'Get the latset news from aljazzera.net RSS' );
-        $control_ops = array('width' => 300, 
-                             'height' => 350, 
-                             'id_base' => 'aljazeera_rss');
-        $this->WP_Widget( 'aljazeera_rss', 'Aljazeera RSS', $widget_ops, $control_ops );
+        parent::__construct('aljazeera_rss', // Base ID
+                            __( 'Aljazeera RSS', 'text_domain' ), // Name
+                            array( 'description' => __( 'Get the latset news from aljazzera.net RSS', 'text_domain' ), ) // Args
+                            );
     }
 
     function widget($args, $instance) {
@@ -52,7 +50,7 @@ class Aljazeera_rss extends WP_Widget {
         // If the url is empty, abort
         if (empty($rss_url)) return;
 
-        // Make sure num_items between limits
+        // Make sure num_items is between limits
         if ($num_items > $this->max_items_allowed) { 
             $num_items = $this->max_items_allowed; 
         } elseif ($num_items < 1) { 
