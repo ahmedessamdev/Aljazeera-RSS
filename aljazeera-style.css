@@ -1,0 +1,78 @@
+/** 
+ * CSS for Plugin : Aljazeera RSS
+ * Plugin URI     : 
+ *
+ */
+
+#aljazeera-rss-container {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	direction: rtl;
+	background-color:#655e53;
+	border-radius:10px;
+	border:1px solid #575757;
+	background-image: url("rss.png");
+	background-position: top left;
+	background-repeat: no-repeat;
+	padding: 6px 6px 0 6px;
+}
+
+#aljazeera-logo {
+	display:block;
+	clear:both;
+	margin:5px auto 0 auto;
+	padding:0;
+}
+
+#aljazeera-link {
+	display:block;
+	text-decoration:none;
+	margin:5px auto 0 auto;
+	text-align:center;
+	font-size: 14px;
+	font-weight:bold;
+	color:#f7af15;
+}
+
+#aljazeera-rss-inner {
+	width:inherit;
+	margin:7px auto;
+	padding:12px 9px;
+	border-radius:10px;
+	border:1px solid #5d5d5d;
+	background-color:#f8f8f8;
+}
+
+#aljazeera-rss-inner dl, 
+#aljazeera-rss-inner dd, 
+#aljazeera-rss-inner .rss-title {
+	margin:0;
+}
+
+#aljazeera-rss-inner .sep {
+	display: block;
+	width: 100%;
+	height: 1px;
+	border-bottom: 1px solid #E1E0E0;
+	margin: 5px auto;
+}
+
+#aljazeera-rss-inner .rss-title a {
+	text-decoration:none;
+	font-size:16px;
+	color:#6b6b6b;
+	font-weight:bold;
+}
+
+#aljazeera-rss-inner .rss-title a:hover {
+	color:#f7a410;
+}
+
+#aljazeera-rss-inner .rss-content {
+	margin-bottom:10px;
+	font-size:15px;
+	color:#6e6e6e;
+}
+
+#aljazeera-rss-inner dl span:last-child {
+    display: none;
+}
