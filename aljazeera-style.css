@@ -21,14 +21,14 @@
     box-shadow: none;
 }
 
-#aljazeera-logo {
+#aljazeera-rss-container #aljazeera-logo {
     display: block;
     clear: both;
     margin: 5px auto 0 auto;
     padding: 0;
 }
 
-#aljazeera-link {
+#aljazeera-rss-container #aljazeera-link {
     display: block;
     margin: 5px auto 0 auto;
     text-align: center;
